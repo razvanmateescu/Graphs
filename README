@@ -1,0 +1,29 @@
+
+
+Pentru prima problema am folosit bfs. Retin graful sub forma de liste de adicaenta.
+Sortez listele de adiacenta pentru fiecare nod crescator pentru a fi alese
+cand parcurg cu bfs nodurile in ordine crescatoare ca sa se obtina parcurgerea minim lexicografica.
+Sursa din care plec este nodul cu numarul 1 fiind cel mai mic nod
+Pentru bfs tin un vector de vizitati si marchez sursa ca fiind vizitata si o adaug in coada.
+Cat timp coada nu e vida  scot un element ,il afisez in fisier si iterez prin vecinii lui
+si ii adaug in coada pe cei care nu au fost vizitati
+Complexitatea algoritmului este complexitatea bfs ului O(V+E) unde V este nr de noduri
+si E nr de muchii
+
+
+Pentru bonus am folosit bfs. Am ales sa construiesc un graf neorientat format cu muchiile grafului orientat dat de problema
+retinut prin liste de adiacenta.Graful orientat il retin intr-o matrice 
+care este initializata cu valoarea 1 pe pozitiile unde exista muchie 
+Folosesc o matrice pentru a retine distanta dintre oricare 2 varfuri calculata ca numar minim de muchii inverse ce trebuie parcurse
+pentru a putea raspunde la fiecare querry in O(1);
+Initial matricea este initializata cu o valoare mare
+Bfs-ul il apelez pe rand din fiecare varf.Distanta de la nodul sursa la el insusi este 0
+Cand avem o muchie verific daca numarul de muchii inverse pe traseul de la nodul sursa la nodul anterior
+plus muchia curenta care este 1 daca este inversa altfel ramane 0 
+este mai mic decat numarul de muchii inverse de la nodul sursa la nodul curent calculat in acel moment
+updatez distanta dintre nodul sursa si nodul curent
+Bfsul se termina cand nu se mai poate updata distanta minima a niciunui nod.
+Am facut o functie pentru bfs care este apelata din functia de scriere pentru toate nodurile si o functie pentru citire
+Complexitatea algoritmului este O(V*(V+E)+Q),
+unde V este nr de noduri E nr de muchii si Q numarul de querry
+deoarece algoritmul bfs are complexitate O(V+E) si este apelat de nr de noduri ori pt cate querry se dau.
